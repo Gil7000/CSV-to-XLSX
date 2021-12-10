@@ -15,8 +15,9 @@ for arqcsv in os.listdir('.'):
         # em alguns casos os arquivos CSV possuem 0 (zero) a esquerda
         # para não perder esses 0 (zeros) precisa definir a coluna do arquivo CSV como texto
         # o comando abaixo informa que a coluna Codigo é texto.
-        # df_csv = pd.read_csv(arqcsv,sep = ";", dtype={"Codigo":"string"})
-        df_csv = pd.read_csv(arqcsv,sep = ";")
+        df_csv = pd.read_csv(arqcsv,sep = ";", dtype={"CDC":"string","Peso":"float"})
+        # df_csv = pd.read_csv(arqcsv,sep = ";")
+        del df_csv['Grade']
         print('Gravando arquivo: '+arquivo+'.xlsx')
         df_csv.to_excel(arquivo+'.xlsx',index=False)
 print(' ')
